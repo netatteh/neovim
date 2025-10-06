@@ -13,6 +13,7 @@ require("lualine").setup()
 
 -- Fuzzy finder
 local builtin = require("telescope.builtin")
+require("telescope").load_extension("ui-select")
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
@@ -23,9 +24,7 @@ require'nvim-treesitter'.install {
 }
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
 
-
--- LSPs
-vim.lsp.enable('pyright')
+vim.keymap.set({'n', 'v', }, '<leader>ca', vim.lsp.buf.code_action, {})
 
 
 
