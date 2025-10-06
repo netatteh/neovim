@@ -22,9 +22,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 require'nvim-treesitter'.install {
   'python'
 }
+vim.diagnostic.config({ virtual_text = true })
+
+-- Other keymap things
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
-
 vim.keymap.set({'n', 'v', }, '<leader>ca', vim.lsp.buf.code_action, {})
-
 
 
