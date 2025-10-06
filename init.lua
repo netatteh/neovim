@@ -33,9 +33,7 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 
 -- Python: Use linting, formatting and imports from ruff, disable these from pyright
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.lsp.config("pyright", {
-	capabilities = capabilities,
 	settings = {
 		pyright = {
 			-- Using Ruff's import organizer
@@ -50,10 +48,6 @@ vim.lsp.config("pyright", {
 	},
 })
 
-vim.lsp.config("lua_ls", {
-	capabilities = capabilities,
-})
---
 -- Other linters and formatters
 local null_ls = require("null-ls")
 null_ls.setup({
