@@ -29,10 +29,29 @@ vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- Linting, formatting etc.
+--
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+
+-- Python: Use linting, formatting and imports from ruff, disable these from pyright
+vim.lsp.config("pyright", {
+	settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
+})
+
+-- Other linters and formatters
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 	},
 })
-vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
