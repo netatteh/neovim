@@ -20,6 +20,7 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 require("nvim-treesitter").install({
+	"go",
 	"python",
 })
 vim.diagnostic.config({ virtual_text = true })
@@ -55,3 +56,4 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 	},
 })
+
