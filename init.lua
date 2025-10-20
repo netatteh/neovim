@@ -6,6 +6,11 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+vim.cmd("noremap <C-h> <C-w>h")
+vim.cmd("noremap <C-j> <C-w>j")
+vim.cmd("noremap <C-k> <C-w>k")
+vim.cmd("noremap <C-l> <C-w>l")
+
 require("config.lazy")
 
 -- Themes etc.
